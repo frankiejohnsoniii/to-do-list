@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h1>To-do List Application</h1>
+
+    <!--Section to add new tasks-->
+    <div>
+        <input type="text" id="newTask" placeholder="Enter a new task">
+        <button id="addTaskButton">Add Task</button>
+    </div>
+
+    <!--Section to display added tasks-->
+    <div>
+        <h2>Your Tasks</h2>
+        <ul id="taskList">
+            <!--Tasks will be added here dynamically-->
+        </ul>
+    </div>
+    <script src="to-do-list.js"></script>
 </body>
 </html>
