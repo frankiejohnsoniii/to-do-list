@@ -9,7 +9,8 @@ function addTask(task) {
    if (task) {
     toDoList.push(task);
     console.log("Task added.");
-    console.log(task);
+    console.log(toDoList);
+    displayTasks();
    }
 }
 
@@ -29,13 +30,16 @@ function removeTask(task) {
 
 // Function to display all tasks in the list
 function displayTasks() {
+    let taskListElement = document.getElementById('taskList');
+    taskListElement.innerHTML = ''; // Clear existing tasks before repopulating the list
     if (toDoList.length != 0) {
-        print("To-Do List:");
         for (let task of toDoList) {
-            print("- " + task);
+            let listItem = document.createElement('li');
+            listItem.textContent = task;
+            taskListElement.appendChild(listItem);
         }
     } else {
-        print("Your to-do list is empty.")
+        taskListElement.innerHTML = "Your task list is empty";
     }
 }
     
@@ -45,6 +49,22 @@ document.getElementById('addTaskButton').addEventListener('click', function() {
     addTask(task);
     document.getElementById('newTask').value = ''; // Clear the input field
 });
+
+//Remove tasks button
+document.getElementById('removeTaskButton').addEventListener('click', function() {
+    let task = document.getElementById('removeTask').value;
+    removeTask(task);
+    document.getElementById('newTask').value = ''; // Clear the input field
+});
+
+
+
+//Display tasks button
+document.getElementById('DisplayTasksButton').addEventListener('click',function () {
+    displayTasks()
+})
+
+
 
 
 
